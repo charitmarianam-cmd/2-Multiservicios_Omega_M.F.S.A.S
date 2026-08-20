@@ -1,0 +1,1 @@
+# En este ejercicio creamos un nuevo repositorio y luego creamos una carpeta con una estructura basada en mi proyecto multiservicios omega m.f.a.s.a.s y luego le creamos la conexion ala base de datos para luego crear un commit y guardar lo realizado en clase 
