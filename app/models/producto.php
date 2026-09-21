@@ -1,21 +1,27 @@
 <?php
-class Producto {
-    private $conn;
-    private $table_name = "producto";
 
-    public $id;
-    public $nombre;
-    public $precio;
-    public $stock;
+require_once ROOT_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'database.php';
 
-    public function __construct($db) {
-        $this->conn = $db;
+class ProductoModel {
+    private $db;
+
+    public function __construct() {
+        $database = new Database();
+        $this->db = $database->conectar();
     }
 
     public function obtenerTodos() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
+        $sql = "SELECT * FROM computadores";
+        $stmt = $this->db->prepare($sql);
         $stmt->execute();
-        return $stmt;
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerPorId($id) {
+        $sql = "SELECT * FROM computadores WHERE id = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
     }
 }
