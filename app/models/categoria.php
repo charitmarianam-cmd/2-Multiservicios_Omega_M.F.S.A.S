@@ -1,20 +1,34 @@
 <?php
+require_once __DIR__ . "/../../config/Database.php";
+
 class Categoria {
-    private $conn;
-    private $table_name = "categoria";
+    private $connection;
 
-    public $id;
-    public $nombre;
-    public $descripcion;
-
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct()
+    {
+        $database = new Database();
+        $this->connection = $database->connect();
     }
 
-    public function obtenerTodas() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+    public function getAll()
+    {
+        $sql = "SELECT * FROM categorias";
+        $consulta = $this->connection->query($sql);
+        return $consulta->fetchAll();
+    }
+
+    public function getById($idCategoria)
+    {
+        try {
+            $sql = "SELECT * FROM categorias WHERE idCategoria = :idCategoria";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":idCategoria", $idCategoria, PDO::PARAM_INT);
+            $consulta->execute();
+
+            return $consulta->fetch();
+        } catch (PDOException $e) {
+            error_log("Error en getById de Categoria: " . $e->getMessage());
+            return false;
+        }
     }
 }

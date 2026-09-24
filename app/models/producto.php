@@ -1,27 +1,34 @@
 <?php
+require_once __DIR__ . "/../../config/Database.php";
 
-require_once ROOT_PATH . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'database.php';
+class Producto {
+    private $connection;
 
-class ProductoModel {
-    private $db;
-
-    public function __construct() {
+    public function __construct()
+    {
         $database = new Database();
-        $this->db = $database->conectar();
+        $this->connection = $database->connect();
     }
 
-    public function obtenerTodos() {
-        $sql = "SELECT * FROM computadores";
-        $stmt = $this->db->prepare($sql);
-        $stmt->execute();
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    public function getAll()
+    {
+        $sql = "SELECT id, nombre, precio, cantidad, categoria FROM productos";
+        $consulta = $this->connection->query($sql);
+        return $consulta->fetchAll();
     }
 
-    public function obtenerPorId($id) {
-        $sql = "SELECT * FROM computadores WHERE id = :id";
-        $stmt = $this->db->prepare($sql);
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
-        $stmt->execute();
-        return $stmt->fetch(PDO::FETCH_ASSOC);
+    public function getById($idProducto)
+    {
+        try {
+            $sql = "SELECT * FROM productos WHERE idProducto = :idProducto";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":idProducto", $idProducto, PDO::PARAM_INT);
+            $consulta->execute();
+
+            return $consulta->fetch(); // fetch single record
+        } catch (PDOException $e) {
+            error_log("Error en getById de Producto: " . $e->getMessage());
+            return false;
+        }
     }
 }

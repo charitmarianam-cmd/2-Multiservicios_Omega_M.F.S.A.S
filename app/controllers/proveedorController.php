@@ -1,21 +1,16 @@
 <?php
-require_once '../config/database.php';
-require_once '../app/models/proveedor.php';
+
+require_once __DIR__ . "/../models/proveedor.php";
 
 class ProveedorController {
+    public function index(){
+        try {
+            $proveedor = new Proveedor();
+            $proveedores = $proveedor->getAll();
 
-    public function index() {
-        $database = new Database();
-        $db = $database->getConnection();
-
-        $proveedorModel = new Proveedor($db);
-        $result = $proveedorModel->obtenerTodos();
-        $proveedores = $result->fetchAll(PDO::FETCH_ASSOC);
-
-        require_once '../app/views/proveedores/index.php';
-    }
-
-    public function crear() {
-        require_once '../app/views/proveedores/crear.php';
+            require_once __DIR__ . "/../views/proveedor/index.php";
+        } catch (Exception $e) {
+            echo "Error en el controlador de proveedores";
+        }
     }
 }

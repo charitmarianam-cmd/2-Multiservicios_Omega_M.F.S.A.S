@@ -1,15 +1,16 @@
 <?php
 
-require_once ROOT_PATH . DIRECTORY_SEPARATOR . 'models' . DIRECTORY_SEPARATOR . 'ProductoModel.php';
+require_once __DIR__ . "/../models/producto.php";
 
 class ProductoController {
+    public function index(){
+        try {
+            $producto = new Producto();
+            $productos = $producto->getAll();
 
-    public function index() {
-        $model = new ProductoModel();
-        
-        $listado = $model->obtenerTodos();
-        $consultado = $model->obtenerPorId(5);
-
-        require_once ROOT_PATH . DIRECTORY_SEPARATOR . 'views' . DIRECTORY_SEPARATOR . 'productoView.php';
+            require_once __DIR__ . "/../views/productos/index.php";
+        } catch (Exception $e) {
+            echo "Error en el controlador de productos";
+        }
     }
 }

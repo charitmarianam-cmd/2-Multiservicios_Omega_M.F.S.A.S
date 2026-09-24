@@ -1,16 +1,16 @@
 <?php
-require_once '../config/database.php';
-require_once '../app/models/venta.php';
+
+require_once __DIR__ . "/../models/venta.php";
 
 class VentaController {
-    public function index() {
-        $database = new Database();
-        $db = $database->getConnection();
+    public function index(){
+        try {
+            $venta = new Venta();
+            $ventas = $venta->getAll();
 
-        $ventaModel = new Venta($db);
-        $result = $ventaModel->obtenerTodas();
-        $ventas = $result->fetchAll(PDO::FETCH_ASSOC);
-
-        require_once '../app/views/ventas/index.php';
+            require_once __DIR__ . "/../views/ventas/index.php";
+        } catch (Exception $e) {
+            echo "Error en el controlador de ventas";
+        }
     }
 }

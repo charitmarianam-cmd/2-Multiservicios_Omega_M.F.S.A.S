@@ -1,14 +1,6 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <title>Gestión de Productos - Multiservicios OMEGA</title>
-</head>
-<body>
-    <h1>Lista de Productos</h1>
-    <a href="index.php?action=crearProducto">+ Registrar Nuevo Producto</a><br><br>
+<h1>Lista de Productos</h1>
 
-    <table border="1" cellpadding="8" cellspacing="0">
+    <table border=1>
         <thead>
             <tr>
                 <th>ID</th>
@@ -16,29 +8,18 @@
                 <th>Precio Unitario</th>
                 <th>Stock</th>
                 <th>Categoría / Tipo</th>
-                <th>Acciones</th>
             </tr>
         </thead>
         <tbody>
-            <?php if (!empty($productos)): ?>
-                <?php foreach ($productos as $p): ?>
-                    <tr>
-                        <td><?= htmlspecialchars($p['idProducto'] ?? '') ?></td>
-                        <td><?= htmlspecialchars($p['nomProducto'] ?? '') ?></td>
-                        <td>$<?= number_format($p['precioUnitario'] ?? 0, 2) ?></td>
-                        <td><?= htmlspecialchars($p['stock'] ?? '0') ?></td>
-                        <td><?= htmlspecialchars($p['idTipoProduc'] ?? 'General') ?></td>
-                        <td>
-                            <a href="index.php?action=editarProducto&id=<?= $p['idProducto'] ?>">Editar</a> | 
-                            <a href="index.php?action=eliminarProducto&id=<?= $p['idProducto'] ?>" onclick="return confirm('¿Está seguro de eliminar este producto?')">Eliminar</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-            <?php else: ?>
+            <?php foreach ($productos as $p): ?>
                 <tr>
-                    <td colspan="6">No hay productos registrados.</td>
+                    <td><?= $p['id'] ?></td>
+                    <td><?= $p['nombre'] ?></td>
+                    <td><?= $p['precio'] ?></td>
+                    <td><?= $p['cantidad'] ?></td>
+                    <td><?= $p['categoria'] ?></td>
                 </tr>
-            <?php endif; ?>
+            <?php endforeach; ?>
         </tbody>
     </table>
 </body>

@@ -1,21 +1,16 @@
 <?php
-require_once '../config/database.php';
-require_once '../app/models/compra.php';
+
+require_once __DIR__ . "/../models/compra.php";
 
 class CompraController {
-    
-    public function index() {
-        $database = new Database();
-        $db = $database->getConnection();
+    public function index(){
+        try {
+            $compra = new Compra();
+            $compras = $compra->getAll();
 
-        $compraModel = new Compra($db);
-        $result = $compraModel->obtenerTodas();
-        $compras = $result->fetchAll(PDO::FETCH_ASSOC);
-
-        require_once '../app/views/compras/index.php';
-    }
-
-    public function crear() {
-        require_once '../app/views/compras/crear.php';
+            require_once __DIR__ . "/../views/compra/index.php";
+        } catch (Exception $e) {
+            echo "Error en el controlador de compras";
+        }
     }
 }

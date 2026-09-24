@@ -1,16 +1,34 @@
 <?php
-class Venta {
-    private $conn;
-    private $table_name = "venta";
+require_once __DIR__ . "/../../config/Database.php";
 
-    public function __construct($db) {
-        $this->conn = $db;
+class Venta {
+    private $connection;
+
+    public function __construct()
+    {
+        $database = new Database();
+        $this->connection = $database->connect();
     }
 
-    public function obtenerTodas() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+    public function getAll()
+    {
+        $sql = "SELECT * FROM ventas";
+        $consulta = $this->connection->query($sql);
+        return $consulta->fetchAll();
+    }
+
+    public function getById($idVenta)
+    {
+        try {
+            $sql = "SELECT * FROM ventas WHERE idVenta = :idVenta";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":idVenta", $idVenta, PDO::PARAM_INT);
+            $consulta->execute();
+
+            return $consulta->fetch();
+        } catch (PDOException $e) {
+            error_log("Error en getById de Venta: " . $e->getMessage());
+            return false;
+        }
     }
 }

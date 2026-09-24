@@ -1,21 +1,34 @@
 <?php
+require_once __DIR__ . "/../../config/Database.php";
+
 class Compra {
-    private $conn;
-    private $table_name = "compra";
+    private $connection;
 
-    public $id;
-    public $fecha;
-    public $total;
-    public $id_proveedor;
-
-    public function __construct($db) {
-        $this->conn = $db;
+    public function __construct()
+    {
+        $database = new Database();
+        $this->connection = $database->connect();
     }
 
-    public function obtenerTodas() {
-        $query = "SELECT * FROM " . $this->table_name;
-        $stmt = $this->conn->prepare($query);
-        $stmt->execute();
-        return $stmt;
+    public function getAll()
+    {
+        $sql = "SELECT * FROM compras";
+        $consulta = $this->connection->query($sql);
+        return $consulta->fetchAll();
+    }
+
+    public function getById($idCompra)
+    {
+        try {
+            $sql = "SELECT * FROM compras WHERE idCompra = :idCompra";
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":idCompra", $idCompra, PDO::PARAM_INT);
+            $consulta->execute();
+
+            return $consulta->fetch();
+        } catch (PDOException $e) {
+            error_log("Error en getById de Compra: " . $e->getMessage());
+            return false;
+        }
     }
 }

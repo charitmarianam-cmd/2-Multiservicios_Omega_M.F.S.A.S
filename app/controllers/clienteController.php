@@ -1,16 +1,16 @@
 <?php
-require_once '../config/database.php';
-require_once '../app/models/cliente.php';
+
+require_once __DIR__ . "/../models/cliente.php";
 
 class ClienteController {
-    public function index() {
-        $database = new Database();
-        $db = $database->getConnection();
+    public function index(){
+        try {
+            $cliente = new Cliente();
+            $clientes = $cliente->getAll();
 
-        $clienteModel = new Cliente($db);
-        $result = $clienteModel->obtenerTodos();
-        $clientes = $result->fetchAll(PDO::FETCH_ASSOC);
-
-        require_once '../app/views/clientes/index.php';
+            require_once __DIR__ . "/../views/clientes/index.php";
+        } catch (Exception $e) {
+            echo "Error en el controlador de clientes";
+        }
     }
 }
