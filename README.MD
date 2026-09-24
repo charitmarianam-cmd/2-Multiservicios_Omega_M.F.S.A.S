@@ -1,3 +1,5 @@
 # En este ejercicio creamos un nuevo repositorio y luego creamos una carpeta con una estructura basada en mi proyecto multiservicios omega m.f.a.s.a.s y luego le creamos la conexion ala base de datos para luego crear un commit y guardar lo realizado en clase 
 
 ## Estuve intentando solucionar el problema de conexión. Probé desde diferentes navegadores y también ejecuté unos comandos en CMD para renovar la conexión y limpiar el DNS, pero el problema continúa y no me funciona tambien intente realizar lo que se pidio pero devido a el error no avance , lo seguire trabajando...
+
+### Continue corrigiendo los errores que tenia con ayuda de algunos compañeros se logro y seguimos realizando lo pedido.
