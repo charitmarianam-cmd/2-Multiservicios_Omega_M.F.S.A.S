@@ -1,24 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear Producto</title>
 </head>
+
 <body>
 
-<form action="productos/crear.php" method="POST">
+    <h1>Crear Producto</h1>
 
-<input type="text" name="id">
-<input type="text" name="nombre">
-<input type="text" name="precio">
-<input type="text" name="cantidad">
-<input type="text" name="categoria">
-<button type="submit">Guardar</button>
+    <form method="POST">
 
-</form>
+        <label>ID:</label>
+        <input type="text" name="id"><br><br>
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre"><br><br>
+
+        <label>Precio:</label>
+        <input type="text" name="precio"><br><br>
+
+        <label>Categoría:</label>
+        <input type="text" name="categoria"><br><br>
+
+        <label>Descripción:</label>
+        <input type="text" name="descripcion"><br><br>
+
+        <label>Proveedor:</label>
+        <input type="text" name="proveedor"><br><br>
+
+        <button type="submit">Guardar</button>
+
+    </form>
+
+    <br>
+
+    <a href="index.php">Volver</a>
 
 </body>
+
 </html>
-
-

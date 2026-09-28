@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear Proveedor</title>
 </head>
+
 <body>
 
-<form action="proveedor/crear.php" method="POST">
+    <h1>Crear Proveedor</h1>
 
-<input type="text" name="id">
-<input type="text" name="nombre">
-<input type="text" name="nit">
-<input type="text" name="telefono">
-<input type="text" name="direccion">
-<button type="submit">Guardar</button>
+    <form method="POST">
 
-</form>
+        <label>ID:</label>
+        <input type="text" name="id"><br><br>
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre"><br><br>
+
+        <label>Ciudad:</label>
+        <input type="text" name="ciudad"><br><br>
+
+        <label>Dirección:</label>
+        <input type="text" name="direccion"><br><br>
+
+        <button type="submit">Guardar</button>
+
+    </form>
+
+    <br>
+
+    <a href="index.php">Volver</a>
 
 </body>
+
 </html>
-
-

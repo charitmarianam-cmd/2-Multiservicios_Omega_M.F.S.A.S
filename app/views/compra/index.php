@@ -9,7 +9,7 @@
                 <th>Total</th>
             </tr>
         </thead>
-        <tbody>
+        <body>
             <?php foreach ($compras as $c): ?>
                 <tr>
                     <td><?= $c['id'] ?></td>
@@ -18,7 +18,7 @@
                     <td><?= $c['total'] ?></td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
+        </body>
     </table>
 </body>
 </html>

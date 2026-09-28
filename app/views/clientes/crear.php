@@ -1,25 +1,40 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear Clientes</title>
 </head>
+
 <body>
 
-<form action="clientes/crear.php" method="POST">
+    <h1>Crear Clientes</h1>
 
-<input type="text" name="id">
-<input type="text" name="docuemnto">
-<input type="text" name="telefono">
-<input type="text" name="ciudad">
-<input type="text" name="direccion">
-<button type="submit">Guardar</button>
+    <form method="POST">
 
-</form>
+        <label>ID:</label>
+        <input type="text" name="id"><br><br>
+
+        <label>Documento:</label>
+        <input type="text" name="documento"><br><br>
+
+        <label>Telefono:</label>
+        <input type="text" name="telefono"><br><br>
+
+        <label>Ciudad:</label>
+        <input type="text" name="ciudad"><br><br>
+
+        <label>Direccion:</label>
+        <input type="text" name="direccion"><br><br>
+
+        <button type="submit">Guardar</button>
+
+    </form>
+
+    <br>
+
+    <a href="index.php">Volver</a>
 
 </body>
+
 </html>
-
-
-

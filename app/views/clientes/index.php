@@ -10,7 +10,7 @@
                 <th>Direccion</th>
             </tr>
         </thead>
-        <tbody>
+        <body>
             <?php foreach ($clientes as $c): ?>
                 <tr>
                     <td><?= $c['id'] ?></td>
@@ -20,7 +20,7 @@
                      <td><?= $c['direccion'] ?></td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
+        </body>
     </table>
 </body>
 </html>

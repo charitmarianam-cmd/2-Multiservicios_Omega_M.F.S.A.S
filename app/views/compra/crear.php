@@ -1,24 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear Compra</title>
 </head>
+
 <body>
 
-<form action="compra/crear.php" method="POST">
+    <h1>Crear Compra</h1>
 
-<input type="text" name="id">
-<input type="text" name="id_proveedor">
-<input type="text" name="fecha">
-<input type="text" name="total">
-<button type="submit">Guardar</button>
+    <form method="POST">
 
-</form>
+        <label>ID:</label>
+        <input type="text" name="id"><br><br>
+
+        <label>Proveedor:</label>
+        <input type="text" name="proveedor"><br><br>
+
+        <label>Fecha:</label>
+        <input type="date" name="fecha"><br><br>
+
+        <label>Total:</label>
+        <input type="text" name="total"><br><br>
+
+        <button type="submit">Guardar</button>
+
+    </form>
+
+    <br>
+
+    <a href="index.php">Volver</a>
 
 </body>
+
 </html>
-
-
 

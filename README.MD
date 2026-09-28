@@ -3,3 +3,5 @@
 ## Estuve intentando solucionar el problema de conexión. Probé desde diferentes navegadores y también ejecuté unos comandos en CMD para renovar la conexión y limpiar el DNS, pero el problema continúa y no me funciona tambien intente realizar lo que se pidio pero devido a el error no avance , lo seguire trabajando...
 
 ### Continue corrigiendo los errores que tenia con ayuda de algunos compañeros se logro y seguimos realizando lo pedido.
+
+#### Empece organizando unos errores que tenia y luego de eso realize el formulario en la vista y organize el controlador para que se reflejara en la vista. 

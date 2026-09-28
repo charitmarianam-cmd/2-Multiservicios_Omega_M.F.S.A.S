@@ -46,16 +46,48 @@ if ($method === 'GET' && $uri === "/venta"){
     $ventaController->index();
 } 
    
-   
 
 
-  
-    
+require_once "../app/controllers/categoriaController.php";
+
+$controller = new CategoriaController();
+
+$controller->crear();
 
 
+require_once "../app/controllers/clienteController.php";
+
+$controller = new ClienteController();
+
+$controller->crear();
 
 
+require_once "../app/controllers/compraController.php";
 
+$compraController = new CompraController();
+
+$compraController->crear();
+
+
+require_once "../app/controllers/productoController.php";
+
+$productoController = new ProductoController();
+
+$productoController->crear();
+
+
+require_once "../app/controllers/proveedorController.php";
+
+$proveedorController = new ProveedorController();
+
+$proveedorController->crear();
+
+
+require_once "../app/controllers/ventaController.php";
+
+$ventaController = new VentaController();
+
+$ventaController->crear();
 
 
 

@@ -9,7 +9,7 @@
                 <th>Estado</th>
             </tr>
         </thead>
-        <tbody>
+        <body>
             <?php foreach ($categorias as $c): ?>
                 <tr>
                     <td><?= $c['id'] ?></td>
@@ -18,7 +18,7 @@
                     <td><?= $c['estado'] ?></td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
+        </body>
     </table>
 </body>
 </html>

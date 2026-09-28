@@ -10,7 +10,7 @@
                 <th>Categoría / Tipo</th>
             </tr>
         </thead>
-        <tbody>
+        <body>
             <?php foreach ($productos as $p): ?>
                 <tr>
                     <td><?= $p['id'] ?></td>
@@ -20,7 +20,7 @@
                     <td><?= $p['categoria'] ?></td>
                 </tr>
             <?php endforeach; ?>
-        </tbody>
+        </body>
     </table>
 </body>
 </html>

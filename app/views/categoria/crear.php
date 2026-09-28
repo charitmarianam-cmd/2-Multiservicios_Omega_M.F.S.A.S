@@ -1,24 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Crear Categoría</title>
 </head>
+
 <body>
 
-<form action="categoria/crear.php" method="POST">
+    <h1>Crear Categoría</h1>
 
-<input type="text" name="id">
-<input type="text" name="nombre">
-<input type="text" name="descripcion">
-<input type="text" name="estado">
-<button type="submit">Guardar</button>
+    <form method="POST">
 
-</form>
+        <label>ID:</label>
+        <input type="text" name="id"><br><br>
+
+        <label>Nombre:</label>
+        <input type="text" name="nombre"><br><br>
+
+        <label>Descripción:</label>
+        <input type="text" name="descripcion"><br><br>
+
+        <label>Estado:</label>
+        <input type="text" name="estado"><br><br>
+
+        <button type="submit">Guardar</button>
+
+    </form>
+
+    <br>
+
+    <a href="index.php">Volver</a>
 
 </body>
+
 </html>
-
-
-

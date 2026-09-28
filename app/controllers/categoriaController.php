@@ -2,15 +2,25 @@
 
 require_once __DIR__ . "/../models/categoria.php";
 
-class CategoriaController {
-    public function index(){
+class CategoriaController
+{
+    public function index()
+    {
         try {
             $categoria = new Categoria();
             $categorias = $categoria->getAll();
 
             require_once __DIR__ . "/../views/categoria/index.php";
+
         } catch (Exception $e) {
             echo "Error en el controlador de categorías";
+        }
+    }
+
+    public function crear()
+    {
+        if ($_SERVER["REQUEST_METHOD"] == "GET") {
+            require_once __DIR__ . "/../views/categoria/crear.php";
         }
     }
 }
