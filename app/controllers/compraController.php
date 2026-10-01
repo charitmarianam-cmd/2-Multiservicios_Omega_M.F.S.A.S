@@ -19,9 +19,28 @@ class CompraController
 
     public function crear()
     {
-        if ($_SERVER["REQUEST_METHOD"] == "GET") {
-            require_once __DIR__ . "/../views/compra/crear.php";
+        require_once __DIR__ . "/../views/compra/crear.php";
+    }
+
+   public function guardar(){
+        $id=$_POST['id'];
+        $id_proveedor=$_POST['id_proveedor'];
+        $fecha=$_POST['fecha'];
+        $total=$_POST['total'];
+
+        $compra = new Compra();
+        $compra->guardar($id,$id_proveedor,$fecha,$total);
+        $resultado = $compra->guardar($id,$id_proveedor,$fecha,$total);
+
+        if ($resultado) {
+            echo "Compra guardada correctamente.";
+             $this->index();
+        } else {
+            echo "Error al guardar la categoría.";
         }
     }
-}
 
+    
+    }
+
+?>

@@ -10,13 +10,14 @@
 
     <h1>Crear Venta</h1>
 
-    <form method="POST">
+    
+    <form action="/ventas" method="POST">
 
         <label>ID:</label>
         <input type="text" name="id"><br><br>
 
-        <label>Cliente:</label>
-        <input type="text" name="cliente"><br><br>
+        <label>Id_Cliente:</label>
+        <input type="text" name="id_cliente"><br><br>
 
         <label>Fecha:</label>
         <input type="date" name="fecha"><br><br>

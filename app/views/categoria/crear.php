@@ -10,11 +10,7 @@
 
     <h1>Crear Categoría</h1>
 
-    <form method="POST">
-
-        <label>ID:</label>
-        <input type="text" name="id"><br><br>
-
+    <form action="/categoria" method="POST">
         <label>Nombre:</label>
         <input type="text" name="nombre"><br><br>
 
@@ -31,7 +27,6 @@
     <br>
 
     <a href="index.php">Volver</a>
-
 </body>
 
 </html>

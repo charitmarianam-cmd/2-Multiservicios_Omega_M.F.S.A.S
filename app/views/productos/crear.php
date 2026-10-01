@@ -10,7 +10,7 @@
 
     <h1>Crear Producto</h1>
 
-    <form method="POST">
+    <form action="/productos" method="POST">
 
         <label>ID:</label>
         <input type="text" name="id"><br><br>
@@ -26,9 +26,6 @@
 
         <label>Descripción:</label>
         <input type="text" name="descripcion"><br><br>
-
-        <label>Proveedor:</label>
-        <input type="text" name="proveedor"><br><br>
 
         <button type="submit">Guardar</button>
 

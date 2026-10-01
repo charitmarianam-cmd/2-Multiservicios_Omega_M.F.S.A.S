@@ -10,18 +10,20 @@
 
     <h1>Crear Proveedor</h1>
 
-    <form method="POST">
+    
+    <form action="/proveedor" method="POST">
 
-        <label>ID:</label>
-        <input type="text" name="id"><br><br>
 
         <label>Nombre:</label>
         <input type="text" name="nombre"><br><br>
 
-        <label>Ciudad:</label>
-        <input type="text" name="ciudad"><br><br>
+        <label>Nit:</label>
+        <input type="text" name="nit"><br><br>
 
-        <label>Dirección:</label>
+        <label>Telefono:</label>
+        <input type="text" name="telefono"><br><br>
+
+        <label>Direccion:</label>
         <input type="text" name="direccion"><br><br>
 
         <button type="submit">Guardar</button>

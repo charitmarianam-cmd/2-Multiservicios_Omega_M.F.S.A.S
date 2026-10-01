@@ -10,10 +10,8 @@
 
     <h1>Crear Clientes</h1>
 
-    <form method="POST">
-
-        <label>ID:</label>
-        <input type="text" name="id"><br><br>
+    
+    <form action="/clientes" method="POST">
 
         <label>Documento:</label>
         <input type="text" name="documento"><br><br>
@@ -34,7 +32,6 @@
     <br>
 
     <a href="index.php">Volver</a>
-
 </body>
 
 </html>

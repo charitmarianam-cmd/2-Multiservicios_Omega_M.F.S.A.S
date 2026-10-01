@@ -10,13 +10,13 @@
 
     <h1>Crear Compra</h1>
 
-    <form method="POST">
+    <form action="/compra" method="POST">
 
         <label>ID:</label>
         <input type="text" name="id"><br><br>
 
         <label>Proveedor:</label>
-        <input type="text" name="proveedor"><br><br>
+        <input type="text" name="id_proveedor"><br><br>
 
         <label>Fecha:</label>
         <input type="date" name="fecha"><br><br>
