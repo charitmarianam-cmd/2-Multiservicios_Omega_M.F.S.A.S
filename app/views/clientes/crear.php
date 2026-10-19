@@ -10,7 +10,6 @@
 
     <h1>Crear Clientes</h1>
 
-    
     <form action="/clientes" method="POST">
 
         <label>Documento:</label>
@@ -32,6 +31,7 @@
     <br>
 
     <a href="index.php">Volver</a>
+
 </body>
 
 </html>

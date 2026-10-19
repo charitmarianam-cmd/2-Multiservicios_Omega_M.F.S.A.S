@@ -42,6 +42,12 @@ class ProductoController
     }
 
     
+    public function editar(){
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+        $mProducto = new Producto();
+       $producto= $mProducto->getById($id);
+       require_once __DIR__ . "/../views/editar.php";
     }
+}
 
 ?>

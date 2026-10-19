@@ -3,26 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Crear Compra</title>
+    <title>Crear Clientes</title>
 </head>
 
 <body>
 
-    <h1>Crear Compra</h1>
+    <h1>Crear Clientes</h1>
 
-    <form action="/compra" method="POST">
+    <form action="/cliente" method="POST">
 
-        <label>ID:</label>
-        <input type="text" name="id"><br><br>
+        <label>Documento:</label>
+        <input type="text" name="documento"><br><br>
 
-        <label>Proveedor:</label>
-        <input type="text" name="id_proveedor"><br><br>
+        <label>Telefono:</label>
+        <input type="text" name="telefono"><br><br>
 
-        <label>Fecha:</label>
-        <input type="date" name="fecha"><br><br>
+        <label>Ciudad:</label>
+        <input type="text" name="ciudad"><br><br>
 
-        <label>Total:</label>
-        <input type="text" name="total"><br><br>
+        <label>Direccion:</label>
+        <input type="text" name="direccion"><br><br>
 
         <button type="submit">Guardar</button>
 
@@ -30,9 +30,8 @@
 
     <br>
 
-    <a href="index.php">Volver</a>
+    <a href="/cliente">Volver</a>
 
 </body>
 
 </html>
-

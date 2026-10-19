@@ -8,6 +8,7 @@
                 <th>Precio Unitario</th>
                 <th>Stock</th>
                 <th>Categoría / Tipo</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <body>
@@ -18,9 +19,11 @@
                     <td><?= $p['precio'] ?></td>
                     <td><?= $p['cantidad'] ?></td>
                     <td><?= $p['categoria'] ?></td>
+                    <td> <a href="/productos/editar/<?= $p['id'] ?>">Editar</a></td>
+
                 </tr>
             <?php endforeach; ?>
         </body>
     </table>
-</body>
+</body> 
 </html>

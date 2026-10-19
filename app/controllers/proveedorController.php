@@ -29,7 +29,6 @@ class ProveedorController
         $direccion = $_POST['direccion'];
 
         $proveedor = new Proveedor();
-        $proveedor->guardar($nombre, $nit, $telefono,$direccion);
         $resultado = $proveedor->guardar($nombre, $nit, $telefono,$direccion);
 
         if ($resultado) {

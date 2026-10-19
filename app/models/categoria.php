@@ -21,7 +21,7 @@ class Categoria
         return $consulta->fetchAll();
     }
 
-    public function guardar( $nombre, $descripcion, $estado)
+    public function guardar($nombre, $descripcion, $estado)
     {
         try {
             $sql = "INSERT INTO categorias (nombre, descripcion, estado)
@@ -33,10 +33,12 @@ class Categoria
             $consulta->bindParam(":descripcion", $descripcion);
             $consulta->bindParam(":estado", $estado);
 
-            $consulta->execute();
+            return $consulta->execute();
 
         } catch (PDOException $e) {
             echo "Error al guardar la categoria: " . $e->getMessage();
+
+            return false;
         }
     }
 
@@ -54,9 +56,13 @@ class Categoria
             return $consulta->fetch();
 
         } catch (PDOException $e) {
+
             error_log("Error en getById de Categoria: " . $e->getMessage());
 
             return false;
         }
     }
 }
+
+?>
+

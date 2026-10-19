@@ -5,3 +5,5 @@
 ### Continue corrigiendo los errores que tenia con ayuda de algunos compañeros se logro y seguimos realizando lo pedido.
 
 #### Empece organizando unos errores que tenia y luego de eso realize el formulario en la vista y organize el controlador para que se reflejara en la vista. 
+
+##### Se agrego en la vista un editar.php y se realizo un formulario pero tuve unos errores y aun no se ve reflejado.
