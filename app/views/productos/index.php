@@ -1,29 +1,28 @@
 <h1>Lista de Productos</h1>
 
-    <table border=1>
-        <thead>
+<table border="1">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nombre del Producto</th>
+            <th>Precio Unitario</th>
+            <th>Stock</th>
+            <th>Categoría / Tipo</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        <?php foreach ($productos as $p): ?>
             <tr>
-                <th>ID</th>
-                <th>Nombre del Producto</th>
-                <th>Precio Unitario</th>
-                <th>Stock</th>
-                <th>Categoría / Tipo</th>
-                <th>Acciones</th>
+                <td><?= $p['id'] ?></td>
+                <td><?= $p['nombre'] ?></td>
+                <td><?= $p['precio'] ?></td>
+                <td><?= $p['cantidad'] ?></td>
+                <td><?= $p['categoria'] ?></td>
+                <td>
+                    <a href="/producto/editar?id=<?= $p['id'] ?>">Editar</a>
+                </td>
             </tr>
-        </thead>
-        <body>
-            <?php foreach ($productos as $p): ?>
-                <tr>
-                    <td><?= $p['id'] ?></td>
-                    <td><?= $p['nombre'] ?></td>
-                    <td><?= $p['precio'] ?></td>
-                    <td><?= $p['cantidad'] ?></td>
-                    <td><?= $p['categoria'] ?></td>
-                    <td> <a href="/productos/editar/<?= $p['id'] ?>">Editar</a></td>
-
-                </tr>
-            <?php endforeach; ?>
-        </body>
-    </table>
-</body> 
-</html>
+        <?php endforeach; ?>
+    </tbody>
+</table>

@@ -7,7 +7,7 @@ class CompraController
     public function index()
     {
         try {
-            $compra = new Compra();
+            $compra = new Compras();
             $compras = $compra->getAll();
 
             require_once __DIR__ . "/../views/compra/index.php";
@@ -22,25 +22,68 @@ class CompraController
         require_once __DIR__ . "/../views/compra/crear.php";
     }
 
-   public function guardar(){
-        $id=$_POST['id'];
-        $id_proveedor=$_POST['id_proveedor'];
-        $fecha=$_POST['fecha'];
-        $total=$_POST['total'];
+    public function guardar()
+    {
+        $id_proveedor = $_POST['id_proveedor'];
+        $fecha = $_POST['fecha'];
+        $total = $_POST['total'];
 
-        $compra = new Compra();
-        $compra->guardar($id,$id_proveedor,$fecha,$total);
-        $resultado = $compra->guardar($id,$id_proveedor,$fecha,$total);
+        $compra = new Compras();
+
+        $resultado = $compra->guardar(
+            $id_proveedor,
+            $fecha,
+            $total
+        );
 
         if ($resultado) {
             echo "Compra guardada correctamente.";
-             $this->index();
+            $this->index();
+
         } else {
-            echo "Error al guardar la categoría.";
+            echo "Error al guardar la compra.";
         }
     }
 
-    
+    public function editar()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+        $mCompra = new Compras();
+        $compra = $mCompra->getById($id);
+
+        if (!$compra) {
+            echo "Compra no encontrada";
+            return;
+        }
+
+        require_once __DIR__ . "/../views/compra/editar.php";
     }
+
+    public function actualizar()
+    {
+        $id = $_POST['id'];
+        $id_proveedor = $_POST['id_proveedor'];
+        $fecha = $_POST['fecha'];
+        $total = $_POST['total'];
+
+        $compra = new Compras();
+
+        $resultado = $compra->actualizar(
+            $id,
+            $id_proveedor,
+            $fecha,
+            $total
+        );
+
+        if ($resultado) {
+            echo "Compra actualizada correctamente.";
+            $this->index();
+
+        } else {
+            echo "Error al actualizar la compra.";
+        }
+    }
+}
 
 ?>

@@ -1,28 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
 <head>
     <meta charset="UTF-8">
-    <title>Crear Clientes</title>
+    <title>Crear Compras</title>
 </head>
 
 <body>
 
-    <h1>Crear Clientes</h1>
+    <h1>Crear Compras</h1>
 
-    <form action="/cliente" method="POST">
+    <form action="/compra" method="POST">
 
-        <label>Documento:</label>
-        <input type="text" name="documento"><br><br>
+        <label>Proveedor:</label>
+        <input type="text" name="id_proveedor" required><br><br>
 
-        <label>Telefono:</label>
-        <input type="text" name="telefono"><br><br>
+        <label>Fecha:</label>
+        <input type="date" name="fecha" required><br><br>
 
-        <label>Ciudad:</label>
-        <input type="text" name="ciudad"><br><br>
-
-        <label>Direccion:</label>
-        <input type="text" name="direccion"><br><br>
+        <label>Total:</label>
+        <input type="number" name="total" step="0.01" min="0" required><br><br>
 
         <button type="submit">Guardar</button>
 
@@ -30,7 +28,7 @@
 
     <br>
 
-    <a href="/cliente">Volver</a>
+    <a href="/compra">Volver</a>
 
 </body>
 

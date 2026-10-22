@@ -1,38 +1,31 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Crear Venta</title>
+    <title>Document</title>
 </head>
-
 <body>
+    <h1>Registrar venta</h1>
 
-    <h1>Crear Venta</h1>
+<form action="/venta" method="POST">
 
-    
-    <form action="/ventas" method="POST">
+    <label for="id_cliente">ID del cliente:</label>
+    <input type="number" id="id_cliente" name="id_cliente" required>
+    <br><br>
 
-        <label>ID:</label>
-        <input type="text" name="id"><br><br>
+    <label for="fecha">Fecha:</label>
+    <input type="date" id="fecha" name="fecha" required>
+    <br><br>
 
-        <label>Id_Cliente:</label>
-        <input type="text" name="id_cliente"><br><br>
+    <label for="total">Total:</label>
+    <input type="number" id="total" name="total" step="0.01" min="0" required>
+    <br><br>
 
-        <label>Fecha:</label>
-        <input type="date" name="fecha"><br><br>
+    <button type="submit">Guardar venta</button>
 
-        <label>Total:</label>
-        <input type="text" name="total"><br><br>
+</form>
 
-        <button type="submit">Guardar</button>
-
-    </form>
-
-    <br>
-
-    <a href="index.php">Volver</a>
+<br>
+<a href="/venta">Volver</a>
 
 </body>
-
 </html>

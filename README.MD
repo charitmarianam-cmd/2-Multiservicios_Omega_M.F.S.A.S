@@ -7,3 +7,5 @@
 #### Empece organizando unos errores que tenia y luego de eso realize el formulario en la vista y organize el controlador para que se reflejara en la vista. 
 
 ##### Se agrego en la vista un editar.php y se realizo un formulario pero tuve unos errores y aun no se ve reflejado.
+
+###### En el dia de hoy trabaje sobre muchos errores que tenia en el codigo para establecer editar.php, se logro correjir con ayuda de instructor y alguna IA y luego de eso hice lo mismo con guia de lo que ya tenia en todas las demas tablas y ya quedo todo ejecutable y listo. 

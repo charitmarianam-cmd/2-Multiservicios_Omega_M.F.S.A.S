@@ -7,6 +7,7 @@
                 <th>Id_cliente</th>
                 <th>Fecha</th>
                 <th>Total</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <body>
@@ -16,6 +17,9 @@
                     <td><?= $v['id_cliente'] ?></td>
                     <td><?= $v['fecha'] ?></td>
                     <td><?= $v['total'] ?></td>
+                     <td>
+                        <a href="/ventas/editar?id=<?= $v['id'] ?>">Editar</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </body>

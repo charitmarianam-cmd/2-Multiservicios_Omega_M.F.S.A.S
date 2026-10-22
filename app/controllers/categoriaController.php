@@ -44,6 +44,46 @@ class CategoriaController
             echo "Error al guardar la categoría.";
         }
     }
+
+    public function editar()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+        $mCategoria = new Categoria();
+        $categoria = $mCategoria->getById($id);
+
+        if (!$categoria) {
+            echo "Categoría no encontrada";
+            return;
+        }
+
+        require_once __DIR__ . "/../views/categoria/editar.php";
+    }
+
+    public function actualizar()
+    {
+        $id = $_POST['id'];
+        $nombre = $_POST['nombre'];
+        $descripcion = $_POST['descripcion'];
+        $estado = $_POST['estado'];
+
+        $categoria = new Categoria();
+
+        $resultado = $categoria->actualizar(
+            $id,
+            $nombre,
+            $descripcion,
+            $estado
+        );
+
+        if ($resultado) {
+            echo "Categoría actualizada correctamente.";
+            $this->index();
+
+        } else {
+            echo "Error al actualizar la categoría.";
+        }
+    }
 }
 
 ?>

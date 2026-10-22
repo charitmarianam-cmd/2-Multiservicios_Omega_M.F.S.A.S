@@ -7,6 +7,7 @@
                 <th>Nit</th>
                 <th>Telefono</th>
                 <th>direccion</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <body>
@@ -16,6 +17,9 @@
                     <td><?= $p['nit'] ?></td>
                     <td><?= $p['telefono'] ?></td>
                     <td><?= $p['direccion'] ?></td>
+                       <td>
+                        <a href="/proveedor/editar?id=<?= $p['id'] ?>">Editar</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </body>

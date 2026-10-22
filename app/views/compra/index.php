@@ -7,6 +7,7 @@
                 <th>id_proveedor</th>
                 <th>Fecha</th>
                 <th>Total</th>
+                <th>Acciones</th>
             </tr>
         </thead>
         <body>
@@ -16,6 +17,9 @@
                     <td><?= $c['id_proveedor'] ?></td>
                     <td><?= $c['fecha'] ?></td>
                     <td><?= $c['total'] ?></td>
+                    <td>
+                        <a href="/compra/editar?id=<?= $c['id'] ?>">Editar</a>
+                    </td>
                 </tr>
             <?php endforeach; ?>
         </body>

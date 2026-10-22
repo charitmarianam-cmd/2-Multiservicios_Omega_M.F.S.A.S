@@ -1,18 +1,24 @@
-<form action="producto/editar" method="POST">
+<h1>Actualizando datos</h1>
 
-    <input type="hidden" name="id" value="<?= $producto->id ?? ''?>">
+<form action="/producto/editar" method="POST">
+    <input type="hidden" name="id" value="<?= $producto->id ?>">
 
-    <label>Nombre:</label>
-    <input type="text" name="nombre" value="<?= $producto->nombre ?? ''?>"><br><br>
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" name="nombre" value="<?= $producto->nombre ?>">
+    <br><br>
 
-    <label>Precio:</label>
-    <input type="text" name="precio" value="<?= $producto->precio ?? '' ?>"><br><br>
+    <label for="precio">Precio:</label>
+    <input type="number" id="precio" name="precio" step="0.01" value="<?= $producto->precio ?>">
+    <br><br>
 
-    <label>Categoría:</label>
-    <input type="text" name="categoria" value="<?= $producto->categoria ?? '' ?>"><br><br>
+    <label for="cantidad">Cantidad:</label>
+    <input type="number" id="cantidad" name="cantidad" value="<?= $producto->cantidad ?>">
+    <br><br>
 
-    <label>Descripción:</label>
-    <input type="text" name="descripcion" value="<?= $producto->descripcion ?? ''?>"><br><br>
+    <label for="categoria">Categoría:</label>
+    <input type="text" id="categoria" name="categoria" value="<?= $producto->categoria ?>">
+    <br><br>
 
-    <button type="submit">Editar</button>
+    <button type="submit">Guardar cambios</button>
 </form>
+

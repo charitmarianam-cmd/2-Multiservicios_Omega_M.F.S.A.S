@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,22 +11,23 @@
 
     <h1>Crear Producto</h1>
 
-    <form action="/productos" method="POST">
-
-        <label>ID:</label>
-        <input type="text" name="id"><br><br>
+    <form action="/producto" method="POST">
 
         <label>Nombre:</label>
-        <input type="text" name="nombre"><br><br>
+        <input type="text" name="nombre" required>
+        <br><br>
 
         <label>Precio:</label>
-        <input type="text" name="precio"><br><br>
+        <input type="number" name="precio" step="0.01" min="0" required>
+        <br><br>
+
+        <label>Cantidad:</label>
+        <input type="number" name="cantidad" min="0" required>
+        <br><br>
 
         <label>Categoría:</label>
-        <input type="text" name="categoria"><br><br>
-
-        <label>Descripción:</label>
-        <input type="text" name="descripcion"><br><br>
+        <input type="text" name="categoria" required>
+        <br><br>
 
         <button type="submit">Guardar</button>
 
@@ -33,7 +35,7 @@
 
     <br>
 
-    <a href="index.php">Volver</a>
+    <a href="/producto">Volver</a>
 
 </body>
 

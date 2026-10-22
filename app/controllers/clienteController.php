@@ -13,7 +13,7 @@ class ClienteController
             require_once __DIR__ . "/../views/clientes/index.php";
 
         } catch (Exception $e) {
-            echo "Error en el controlador de clientes";
+            echo "Error en el controlador de clientes: " . $e->getMessage();
         }
     }
 
@@ -24,10 +24,10 @@ class ClienteController
 
     public function guardar()
     {
-        $documento = $_POST['documento'] ?? '';
-        $telefono = $_POST['telefono'] ?? '';
-        $ciudad = $_POST['ciudad'] ?? '';
-        $direccion = $_POST['direccion'] ?? '';
+        $documento = $_POST['documento'];
+        $telefono = $_POST['telefono'];
+        $ciudad = $_POST['ciudad'];
+        $direccion = $_POST['direccion'];
 
         $cliente = new Cliente();
 
@@ -39,13 +39,52 @@ class ClienteController
         );
 
         if ($resultado) {
-            // Redirección para recargar la ruta GET y mostrar la tabla con los datos
-            header("Location: /taller_mvc/public/cliente");
-            exit;
+            echo "Cliente guardado correctamente.";
+            $this->index();
         } else {
             echo "Error al guardar el cliente.";
         }
     }
-}
 
+    public function editar()
+    {
+        $id = filter_input(INPUT_GET, 'id', FILTER_VALIDATE_INT);
+
+        $mCliente = new Cliente();
+        $cliente = $mCliente->getById($id);
+
+        if (!$cliente) {
+            echo "Cliente no encontrado.";
+            return;
+        }
+
+        require_once __DIR__ . "/../views/clientes/editar.php";
+    }
+
+    public function actualizar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+        $documento = $_POST['documento'];
+        $telefono = $_POST['telefono'];
+        $ciudad = $_POST['ciudad'];
+        $direccion = $_POST['direccion'];
+
+        $cliente = new Cliente();
+
+        $resultado = $cliente->actualizar(
+            $id,
+            $documento,
+            $telefono,
+            $ciudad,
+            $direccion
+        );
+
+        if ($resultado) {
+            echo "Cliente actualizado correctamente.";
+            $this->index();
+        } else {
+            echo "Error al actualizar el cliente.";
+        }
+    }
+}
 ?>
