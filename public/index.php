@@ -1,4 +1,3 @@
-
 <?php
 
 require_once __DIR__ . "/../app/controllers/ProductoController.php";
@@ -235,6 +234,51 @@ if ($method === "GET" && $ruta === "/venta/editar") {
 if ($method === "POST" && $ruta === "/venta/editar") {
     $ventaController = new VentaController();
     $ventaController->actualizar();
+    exit;
+}
+
+
+
+
+/* RUTA PARA ELIMINAR CLIENTES */
+
+
+if ($method === 'POST' && $ruta === "/cliente/eliminar") {
+    $controller = new ClienteController();
+    $controller->eliminar();
+    exit;
+}
+
+
+if ($method === 'POST' && $ruta === "/categoria/eliminar") {
+    $controller = new CategoriaController();
+    $controller->eliminar();
+    exit;
+}
+
+if ($method === 'POST' && $ruta === "/compra/eliminar") {
+    $controller = new CompraController();
+    $controller->eliminar();
+    exit;
+}
+
+
+if ($method === 'POST' && $ruta === "/producto/eliminar") {
+    $controller = new ProductoController();
+    $controller->eliminar();
+    exit;
+}
+
+if ($method === 'POST' && $ruta === "/proveedor/eliminar") {
+    $controller = new ProveedorController();
+    $controller->eliminar();
+    exit;
+}
+
+
+if ($method === 'POST' && $ruta === "/venta/eliminar") {
+    $controller = new VentaController();
+    $controller->eliminar();
     exit;
 }
 

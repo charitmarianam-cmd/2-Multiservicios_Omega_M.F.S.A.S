@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . "/../models/producto.php";
@@ -110,6 +111,26 @@ class ProductoController
             exit;
         } else {
             echo "Error al actualizar el producto.";
+        }
+    }
+
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            echo "ID de producto no válido.";
+            return;
+        }
+
+        $producto = new Producto();
+        $resultado = $producto->eliminar($id);
+
+        if ($resultado) {
+            header("Location: /producto");
+            exit;
+        } else {
+            echo "Error al eliminar el producto.";
         }
     }
 }

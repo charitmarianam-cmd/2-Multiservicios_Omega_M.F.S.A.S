@@ -86,5 +86,24 @@ class ProveedorController
             echo "Error al actualizar el proveedor.";
         }
     }
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            echo "ID de proveedor no válido.";
+            return;
+        }
+
+        $proveedor = new Proveedor();
+        $resultado = $proveedor->eliminar($id);
+
+        if ($resultado) {
+            header("Location: /proveedor");
+            exit;
+        } else {
+            echo "Error al eliminar el proveedor.";
+        }
+    }
 }
 ?>

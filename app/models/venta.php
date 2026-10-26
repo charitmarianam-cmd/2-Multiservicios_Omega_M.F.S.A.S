@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . "/../../config/Database.php";
@@ -69,6 +70,22 @@ class Venta
 
         } catch (PDOException $e) {
             echo "Error al actualizar la venta: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM ventas WHERE id = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":id", $id, PDO::PARAM_INT);
+
+            return $consulta->execute();
+
+        } catch (PDOException $e) {
+            echo "Error al eliminar la venta: " . $e->getMessage();
             return false;
         }
     }

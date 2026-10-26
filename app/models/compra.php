@@ -86,6 +86,22 @@ class Compras
             return false;
         }
     }
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM compras WHERE id = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":id", $id, PDO::PARAM_INT);
+
+            return $consulta->execute();
+
+        } catch (PDOException $e) {
+            echo "Error al eliminar la compra: " . $e->getMessage();
+            return false;
+        }
+    }
+
 }
 
 ?>

@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . "/../models/venta.php";
@@ -24,7 +25,12 @@ class VentaController
         $total = $_POST['total'];
 
         $venta = new Venta();
-        $resultado = $venta->guardar($id_cliente, $fecha, $total);
+
+        $resultado = $venta->guardar(
+            $id_cliente,
+            $fecha,
+            $total
+        );
 
         if ($resultado) {
             echo "Venta guardada correctamente.";
@@ -68,6 +74,7 @@ class VentaController
         $total = $_POST['total'];
 
         $venta = new Venta();
+
         $resultado = $venta->actualizar(
             $id,
             $id_cliente,
@@ -80,6 +87,26 @@ class VentaController
             exit;
         } else {
             echo "Error al actualizar la venta.";
+        }
+    }
+
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            echo "ID de venta no válido.";
+            return;
+        }
+
+        $venta = new Venta();
+        $resultado = $venta->eliminar($id);
+
+        if ($resultado) {
+            header("Location: /venta");
+            exit;
+        } else {
+            echo "Error al eliminar la venta.";
         }
     }
 }

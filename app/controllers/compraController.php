@@ -84,6 +84,28 @@ class CompraController
             echo "Error al actualizar la compra.";
         }
     }
+    
+    
+public function eliminar()
+{
+    $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+    if (!$id) {
+        echo "ID de compra no válido.";
+        return;
+    }
+
+    $compra = new Compras();
+    $resultado = $compra->eliminar($id);
+
+    if ($resultado) {
+        header("Location: /compra");
+        exit;
+    } else {
+        echo "Error al eliminar la compra.";
+    }
+}
+
 }
 
 ?>

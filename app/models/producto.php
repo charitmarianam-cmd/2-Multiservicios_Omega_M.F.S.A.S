@@ -16,6 +16,7 @@ class Producto
     {
         $sql = "SELECT id, nombre, precio, cantidad, categoria FROM productos";
         $consulta = $this->connection->query($sql);
+
         return $consulta->fetchAll();
     }
 
@@ -45,6 +46,7 @@ class Producto
     {
         try {
             $sql = "SELECT * FROM productos WHERE id = :id";
+
             $consulta = $this->connection->prepare($sql);
             $consulta->bindParam(":id", $id, PDO::PARAM_INT);
             $consulta->execute();
@@ -79,6 +81,22 @@ class Producto
 
         } catch (PDOException $e) {
             echo "Error al actualizar el producto: " . $e->getMessage();
+            return false;
+        }
+    }
+
+    public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM productos WHERE id = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":id", $id, PDO::PARAM_INT);
+
+            return $consulta->execute();
+
+        } catch (PDOException $e) {
+            echo "Error al eliminar el producto: " . $e->getMessage();
             return false;
         }
     }

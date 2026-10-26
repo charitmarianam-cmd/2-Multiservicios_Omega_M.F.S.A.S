@@ -1,3 +1,4 @@
+
 <?php
 
 require_once __DIR__ . "/../models/cliente.php";
@@ -84,6 +85,26 @@ class ClienteController
             $this->index();
         } else {
             echo "Error al actualizar el cliente.";
+        }
+    }
+
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            echo "ID de cliente no válido.";
+            return;
+        }
+
+        $cliente = new Cliente();
+        $resultado = $cliente->eliminar($id);
+
+        if ($resultado) {
+            header("Location: /cliente");
+            exit;
+        } else {
+            echo "Error al eliminar el cliente.";
         }
     }
 }

@@ -85,5 +85,20 @@ class Proveedor
             return false;
         }
     }
+ public function eliminar($id)
+    {
+        try {
+            $sql = "DELETE FROM proveedores WHERE id = :id";
+
+            $consulta = $this->connection->prepare($sql);
+            $consulta->bindParam(":id", $id, PDO::PARAM_INT);
+
+            return $consulta->execute();
+
+        } catch (PDOException $e) {
+            echo "Error al eliminar el proveedor: " . $e->getMessage();
+            return false;
+        }
+    }
 }
 ?>

@@ -84,6 +84,27 @@ class CategoriaController
             echo "Error al actualizar la categoría.";
         }
     }
+    
+    public function eliminar()
+    {
+        $id = filter_input(INPUT_POST, 'id', FILTER_VALIDATE_INT);
+
+        if (!$id) {
+            echo "ID de categoria no válido.";
+            return;
+        }
+
+        $categoria = new Categoria();
+        $resultado = $categoria->eliminar($id);
+
+        if ($resultado) {
+            header("Location: /categoria");
+            exit;
+        } else {
+            echo "Error al eliminar la categoria.";
+        }
+    }
 }
+
 
 ?>

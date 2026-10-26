@@ -21,6 +21,20 @@
                 <td><?= $p['categoria'] ?></td>
                 <td>
                     <a href="/producto/editar?id=<?= $p['id'] ?>">Editar</a>
+
+                    <!-- FORMULARIO POST PARA ELIMINAR PRODUCTO -->
+                    <form action="/producto/eliminar" method="POST"
+                        style="display:inline;"
+                        onsubmit="return confirm('¿Está seguro de que desea eliminar este producto?');">
+
+                        <input type="hidden" name="id" value="<?= $p['id'] ?>">
+
+                        <button type="submit"
+                            style="color: red; background: none; border: none; padding: 0; cursor: pointer; text-decoration: underline;">
+                            Eliminar
+                        </button>
+                    </form>
+
                 </td>
             </tr>
         <?php endforeach; ?>
