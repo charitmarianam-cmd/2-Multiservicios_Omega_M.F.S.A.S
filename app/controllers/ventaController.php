@@ -5,7 +5,7 @@ require_once __DIR__ . "/../models/venta.php";
 
 class VentaController
 {
-    public function index()
+    public function listar()
     {
         $venta = new Venta();
         $ventas = $venta->getAll();
@@ -34,7 +34,7 @@ class VentaController
 
         if ($resultado) {
             echo "Venta guardada correctamente.";
-            $this->index();
+            $this->listar();
         } else {
             echo "Error al guardar la venta.";
         }

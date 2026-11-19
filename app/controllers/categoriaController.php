@@ -4,7 +4,7 @@ require_once __DIR__ . "/../models/categoria.php";
 
 class CategoriaController
 {
-    public function index()
+    public function listar()
     {
         try {
             $categoria = new Categoria();
@@ -38,7 +38,7 @@ class CategoriaController
 
         if ($resultado) {
             echo "Categoría guardada correctamente.";
-            $this->index();
+            $this->listar();
 
         } else {
             echo "Error al guardar la categoría.";
@@ -78,7 +78,7 @@ class CategoriaController
 
         if ($resultado) {
             echo "Categoría actualizada correctamente.";
-            $this->index();
+            $this->listar();
 
         } else {
             echo "Error al actualizar la categoría.";

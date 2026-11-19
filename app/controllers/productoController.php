@@ -5,7 +5,7 @@ require_once __DIR__ . "/../models/producto.php";
 
 class ProductoController
 {
-    public function index()
+    public function listar()
     {
         try {
             $producto = new Producto();

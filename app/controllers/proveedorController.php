@@ -4,7 +4,7 @@ require_once __DIR__ . "/../models/proveedor.php";
 
 class ProveedorController
 {
-    public function index()
+    public function listar()
     {
         try {
             $proveedor = new Proveedor();
@@ -40,7 +40,7 @@ class ProveedorController
 
         if ($resultado) {
             echo "Proveedor guardado correctamente.";
-            $this->index();
+            $this->listar();
         } else {
             echo "Error al guardar el proveedor.";
         }
@@ -81,7 +81,7 @@ class ProveedorController
 
         if ($resultado) {
             echo "Proveedor actualizado correctamente.";
-            $this->index();
+            $this->listar();
         } else {
             echo "Error al actualizar el proveedor.";
         }

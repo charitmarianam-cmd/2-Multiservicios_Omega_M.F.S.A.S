@@ -5,7 +5,7 @@ require_once __DIR__ . "/../models/cliente.php";
 
 class ClienteController
 {
-    public function index()
+    public function listar()
     {
         try {
             $cliente = new Cliente();
@@ -41,7 +41,7 @@ class ClienteController
 
         if ($resultado) {
             echo "Cliente guardado correctamente.";
-            $this->index();
+            $this->listar();
         } else {
             echo "Error al guardar el cliente.";
         }
@@ -82,7 +82,7 @@ class ClienteController
 
         if ($resultado) {
             echo "Cliente actualizado correctamente.";
-            $this->index();
+            $this->listar();
         } else {
             echo "Error al actualizar el cliente.";
         }

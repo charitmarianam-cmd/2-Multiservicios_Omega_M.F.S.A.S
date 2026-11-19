@@ -4,7 +4,7 @@ require_once __DIR__ . "/../models/compra.php";
 
 class CompraController
 {
-    public function index()
+    public function listar()
     {
         try {
             $compra = new Compras();
@@ -38,7 +38,7 @@ class CompraController
 
         if ($resultado) {
             echo "Compra guardada correctamente.";
-            $this->index();
+            $this->listar();
 
         } else {
             echo "Error al guardar la compra.";
@@ -78,7 +78,7 @@ class CompraController
 
         if ($resultado) {
             echo "Compra actualizada correctamente.";
-            $this->index();
+            $this->listar();
 
         } else {
             echo "Error al actualizar la compra.";
