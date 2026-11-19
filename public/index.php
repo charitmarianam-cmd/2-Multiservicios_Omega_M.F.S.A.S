@@ -8,8 +8,7 @@ require_once __DIR__ . "/../app/controllers/compraController.php";
 require_once __DIR__ . "/../app/controllers/ventaController.php";
 
 $method = $_SERVER['REQUEST_METHOD'];
-$uri = $_SERVER['REQUEST_URI'];
-$ruta = parse_url($uri, PHP_URL_PATH);
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 ?>
 
@@ -31,255 +30,274 @@ $ruta = parse_url($uri, PHP_URL_PATH);
 
 <?php
 
-/* RUTAS PARA LISTAR (GET) */
+switch ($uri) {
+    case '/cliente':
+    case '/clientes':
+        if ($method === 'GET') {
+            $cliente = new ClienteController();
+            $cliente->index();
+            exit;
+        }
+        if ($method === 'POST') {
+            $cliente = new ClienteController();
+            $cliente->guardar();
+            exit;
+        }
+        break;
 
-if ($method === 'GET' && ($ruta === "/cliente" || $ruta === "/clientes")) {
-    $clienteController = new ClienteController();
-    $clienteController->index();
-    exit;
+    case '/cliente/crear':
+    case '/clientes/crear':
+        if ($method === 'GET') {
+            $cliente = new ClienteController();
+            $cliente->crear();
+            exit;
+        }
+        break;
+
+    case '/cliente/editar':
+        if ($method === 'GET') {
+            $cliente = new ClienteController();
+            $cliente->editar();
+            exit;
+        }
+        if ($method === 'POST') {
+            $cliente = new ClienteController();
+            $cliente->actualizar();
+            exit;
+        }
+        break;
+
+    case '/cliente/eliminar':
+        if ($method === 'POST') {
+            $cliente = new ClienteController();
+            $cliente->eliminar();
+            exit;
+        }
+        break;
+
+    case '/producto':
+    case '/productos':
+        if ($method === 'GET') {
+            $producto = new ProductoController();
+            $producto->index();
+            exit;
+        }
+        if ($method === 'POST') {
+            $producto = new ProductoController();
+            $producto->guardar();
+            exit;
+        }
+        break;
+
+    case '/producto/crear':
+    case '/productos/crear':
+        if ($method === 'GET') {
+            $producto = new ProductoController();
+            $producto->crear();
+            exit;
+        }
+        break;
+
+    case '/producto/editar':
+        if ($method === 'GET') {
+            $producto = new ProductoController();
+            $producto->editar();
+            exit;
+        }
+        if ($method === 'POST') {
+            $producto = new ProductoController();
+            $producto->actualizar();
+            exit;
+        }
+        break;
+
+    case '/producto/eliminar':
+        if ($method === 'POST') {
+            $producto = new ProductoController();
+            $producto->eliminar();
+            exit;
+        }
+        break;
+
+    case '/categoria':
+    case '/categorias':
+        if ($method === 'GET') {
+            $categoria = new CategoriaController();
+            $categoria->index();
+            exit;
+        }
+        if ($method === 'POST') {
+            $categoria = new CategoriaController();
+            $categoria->guardar();
+            exit;
+        }
+        break;
+
+    case '/categoria/crear':
+    case '/categorias/crear':
+        if ($method === 'GET') {
+            $categoria = new CategoriaController();
+            $categoria->crear();
+            exit;
+        }
+        break;
+
+    case '/categoria/editar':
+        if ($method === 'GET') {
+            $categoria = new CategoriaController();
+            $categoria->editar();
+            exit;
+        }
+        if ($method === 'POST') {
+            $categoria = new CategoriaController();
+            $categoria->actualizar();
+            exit;
+        }
+        break;
+
+    case '/categoria/eliminar':
+        if ($method === 'POST') {
+            $categoria = new CategoriaController();
+            $categoria->eliminar();
+            exit;
+        }
+        break;
+
+    case '/compra':
+    case '/compras':
+        if ($method === 'GET') {
+            $compra = new CompraController();
+            $compra->index();
+            exit;
+        }
+        if ($method === 'POST') {
+            $compra = new CompraController();
+            $compra->guardar();
+            exit;
+        }
+        break;
+
+    case '/compra/crear':
+    case '/compras/crear':
+        if ($method === 'GET') {
+            $compra = new CompraController();
+            $compra->crear();
+            exit;
+        }
+        break;
+
+    case '/compra/editar':
+        if ($method === 'GET') {
+            $compra = new CompraController();
+            $compra->editar();
+            exit;
+        }
+        if ($method === 'POST') {
+            $compra = new CompraController();
+            $compra->actualizar();
+            exit;
+        }
+        break;
+
+    case '/compra/eliminar':
+        if ($method === 'POST') {
+            $compra = new CompraController();
+            $compra->eliminar();
+            exit;
+        }
+        break;
+
+    case '/proveedor':
+    case '/proveedores':
+        if ($method === 'GET') {
+            $proveedor = new ProveedorController();
+            $proveedor->index();
+            exit;
+        }
+        if ($method === 'POST') {
+            $proveedor = new ProveedorController();
+            $proveedor->guardar();
+            exit;
+        }
+        break;
+
+    case '/proveedor/crear':
+    case '/proveedores/crear':
+        if ($method === 'GET') {
+            $proveedor = new ProveedorController();
+            $proveedor->crear();
+            exit;
+        }
+        break;
+
+    case '/proveedor/editar':
+        if ($method === 'GET') {
+            $proveedor = new ProveedorController();
+            $proveedor->editar();
+            exit;
+        }
+        if ($method === 'POST') {
+            $proveedor = new ProveedorController();
+            $proveedor->actualizar();
+            exit;
+        }
+        break;
+
+    case '/proveedor/eliminar':
+        if ($method === 'POST') {
+            $proveedor = new ProveedorController();
+            $proveedor->eliminar();
+            exit;
+        }
+        break;
+
+    case '/venta':
+    case '/ventas':
+        if ($method === 'GET') {
+            $venta = new VentaController();
+            $venta->index();
+            exit;
+        }
+        if ($method === 'POST') {
+            $venta = new VentaController();
+            $venta->guardar();
+            exit;
+        }
+        break;
+
+    case '/venta/crear':
+    case '/ventas/crear':
+        if ($method === 'GET') {
+            $venta = new VentaController();
+            $venta->crear();
+            exit;
+        }
+        break;
+
+    case '/venta/editar':
+        if ($method === 'GET') {
+            $venta = new VentaController();
+            $venta->editar();
+            exit;
+        }
+        if ($method === 'POST') {
+            $venta = new VentaController();
+            $venta->actualizar();
+            exit;
+        }
+        break;
+
+    case '/venta/eliminar':
+        if ($method === 'POST') {
+            $venta = new VentaController();
+            $venta->eliminar();
+            exit;
+        }
+        break;
+
+    default:
+        http_response_code(404);
+        echo "Ruta no encontrada";
+        break;
 }
 
-if ($method === 'GET' && ($ruta === "/producto" || $ruta === "/productos")) {
-    $productoController = new ProductoController();
-    $productoController->index();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/categoria" || $ruta === "/categorias")) {
-    $categoriaController = new CategoriaController();
-    $categoriaController->index();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/compra" || $ruta === "/compras")) {
-    $compraController = new CompraController();
-    $compraController->index();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/proveedor" || $ruta === "/proveedores")) {
-    $proveedorController = new ProveedorController();
-    $proveedorController->index();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/venta" || $ruta === "/ventas")) {
-    $ventaController = new VentaController();
-    $ventaController->index();
-    exit;
-}
-
-
-/* RUTAS PARA MOSTRAR LOS FORMULARIOS (GET) */
-
-if ($method === 'GET' && ($ruta === "/categoria/crear" || $ruta === "/categorias/crear")) {
-    $categoriaController = new CategoriaController();
-    $categoriaController->crear();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/cliente/crear" || $ruta === "/clientes/crear")) {
-    $clienteController = new ClienteController();
-    $clienteController->crear();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/compra/crear" || $ruta === "/compras/crear")) {
-    $compraController = new CompraController();
-    $compraController->crear();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/producto/crear" || $ruta === "/productos/crear")) {
-    $productoController = new ProductoController();
-    $productoController->crear();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/proveedor/crear" || $ruta === "/proveedores/crear")) {
-    $proveedorController = new ProveedorController();
-    $proveedorController->crear();
-    exit;
-}
-
-if ($method === 'GET' && ($ruta === "/venta/crear" || $ruta === "/ventas/crear")) {
-    $ventaController = new VentaController();
-    $ventaController->crear();
-    exit;
-}
-
-
-/* RUTAS PARA GUARDAR DATOS (POST) */
-
-if ($method === "POST" && ($ruta === "/producto" || $ruta === "/productos")) {
-    $productoController = new ProductoController();
-    $productoController->guardar();
-    exit;
-}
-
-if ($method === "POST" && ($ruta === "/proveedor" || $ruta === "/proveedores")) {
-    $proveedorController = new ProveedorController();
-    $proveedorController->guardar();
-    exit;
-}
-
-if ($method === "POST" && ($ruta === "/venta" || $ruta === "/ventas")) {
-    $ventaController = new VentaController();
-    $ventaController->guardar();
-    exit;
-}
-
-if ($method === "POST" && ($ruta === "/compra" || $ruta === "/compras")) {
-    $compraController = new CompraController();
-    $compraController->guardar();
-    exit;
-}
-
-if ($method === "POST" && ($ruta === "/cliente" || $ruta === "/clientes")) {
-    $clienteController = new ClienteController();
-    $clienteController->guardar();
-    exit;
-}
-
-if ($method === "POST" && ($ruta === "/categoria" || $ruta === "/categorias")) {
-    $categoriaController = new CategoriaController();
-    $categoriaController->guardar();
-    exit;
-}
-
-
-/* RUTAS PARA EDITAR Y ACTUALIZAR PRODUCTOS */
-
-if ($method === "GET" && $ruta === "/producto/editar") {
-    $productoController = new ProductoController();
-    $productoController->editar();
-    exit;
-}
-
-if ($method === "POST" && $ruta === "/producto/editar") {
-    $productoController = new ProductoController();
-    $productoController->actualizar();
-    exit;
-}
-
-
-/* RUTAS PARA EDITAR Y ACTUALIZAR CATEGORÍAS */
-
-if ($method === "GET" && $ruta === "/categoria/editar") {
-    $categoriaController = new CategoriaController();
-    $categoriaController->editar();
-    exit;
-}
-
-if ($method === "POST" && $ruta === "/categoria/editar") {
-    $categoriaController = new CategoriaController();
-    $categoriaController->actualizar();
-    exit;
-}
-
-
-/* RUTAS PARA EDITAR Y ACTUALIZAR CLIENTES */
-
-if ($method === "GET" && $ruta === "/cliente/editar") {
-    $clienteController = new ClienteController();
-    $clienteController->editar();
-    exit;
-}
-
-if ($method === "POST" && $ruta === "/cliente/editar") {
-    $clienteController = new ClienteController();
-    $clienteController->actualizar();
-    exit;
-}
-
-
-/* RUTAS PARA EDITAR Y ACTUALIZAR COMPRAS */
-
-if ($method === "GET" && $ruta === "/compra/editar") {
-    $compraController = new CompraController();
-    $compraController->editar();
-    exit;
-}
-
-if ($method === "POST" && $ruta === "/compra/editar") {
-    $compraController = new CompraController();
-    $compraController->actualizar();
-    exit;
-}
-
-
-/* RUTAS PARA EDITAR Y ACTUALIZAR PROVEEDORES */
-
-if ($method === "GET" && $ruta === "/proveedor/editar") {
-    $proveedorController = new ProveedorController();
-    $proveedorController->editar();
-    exit;
-}
-
-if ($method === "POST" && $ruta === "/proveedor/editar") {
-    $proveedorController = new ProveedorController();
-    $proveedorController->actualizar();
-    exit;
-}
-
-
-/* RUTAS PARA EDITAR Y ACTUALIZAR VENTAS */
-
-if ($method === "GET" && $ruta === "/venta/editar") {
-    $ventaController = new VentaController();
-    $ventaController->editar();
-    exit;
-}
-
-if ($method === "POST" && $ruta === "/venta/editar") {
-    $ventaController = new VentaController();
-    $ventaController->actualizar();
-    exit;
-}
-
-
-
-
-/* RUTA PARA ELIMINAR CLIENTES */
-
-
-if ($method === 'POST' && $ruta === "/cliente/eliminar") {
-    $controller = new ClienteController();
-    $controller->eliminar();
-    exit;
-}
-
-
-if ($method === 'POST' && $ruta === "/categoria/eliminar") {
-    $controller = new CategoriaController();
-    $controller->eliminar();
-    exit;
-}
-
-if ($method === 'POST' && $ruta === "/compra/eliminar") {
-    $controller = new CompraController();
-    $controller->eliminar();
-    exit;
-}
-
-
-if ($method === 'POST' && $ruta === "/producto/eliminar") {
-    $controller = new ProductoController();
-    $controller->eliminar();
-    exit;
-}
-
-if ($method === 'POST' && $ruta === "/proveedor/eliminar") {
-    $controller = new ProveedorController();
-    $controller->eliminar();
-    exit;
-}
-
-
-if ($method === 'POST' && $ruta === "/venta/eliminar") {
-    $controller = new VentaController();
-    $controller->eliminar();
-    exit;
-}
-
-?>
