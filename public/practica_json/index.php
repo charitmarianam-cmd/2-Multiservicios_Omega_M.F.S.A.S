@@ -1,4 +1,6 @@
 <?php
+
+
 echo "<h2>1. Ejercicio 1: De PHP a JSON</h2>";
 
 $productosEjercicio1 = [
@@ -24,7 +26,6 @@ $productosEjercicio1 = [
         "disponibilidad" => true
     ]
 ];
-
 $jsonTresProductos = json_encode($productosEjercicio1);
 echo "<p><strong>JSON inicial (3 productos):</strong></p>";
 echo "<pre>" . $jsonTresProductos . "</pre>";
@@ -42,6 +43,7 @@ echo "<p><strong>JSON con cuarto producto y JSON_PRETTY_PRINT:</strong></p>";
 echo "<pre>" . $jsonCuatroProductos . "</pre>";
 
 
+
 echo "<h2>2. Ejercicio 2: De JSON a PHP</h2>";
 
 $rutaArchivo = __DIR__ . "/productos.json";
@@ -54,12 +56,14 @@ if (!file_exists($rutaArchivo)) {
 $contenidoJson = file_get_contents($rutaArchivo);
 $decodificado = json_decode($contenidoJson, true);
 
+
 $listaProductos = isset($decodificado["productos"]) ? $decodificado["productos"] : $decodificado;
 
 echo "<p><strong>Todos los productos (Nombre y Precio):</strong></p>";
 foreach ($listaProductos as $item) {
     echo "Nombre: {$item['nombre']} | Precio: $" . number_format($item['precio'], 0, ",", ".") . "<br>";
 }
+
 
 echo "<p><strong>Productos con precio superior a $100.000:</strong></p>";
 foreach ($listaProductos as $item) {
@@ -69,12 +73,12 @@ foreach ($listaProductos as $item) {
 }
 
 
-
 echo "<h2>3. Ejercicio 3: Modificar y convertir información</h2>";
 
-$idBuscar = 3;      
-$nuevoPrecio = 850000;  
+$idBuscar = 3;         
+$nuevoPrecio = 850000;
 $encontrado = false;
+
 
 foreach ($listaProductos as &$producto) {
     if ($producto["id"] == $idBuscar) {
@@ -85,6 +89,7 @@ foreach ($listaProductos as &$producto) {
 }
 unset($producto);
 
+
 $jsonModificado = json_encode($listaProductos, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
 
 if ($encontrado) {
@@ -93,3 +98,4 @@ if ($encontrado) {
     echo "<p>No se encontró un producto con ID <strong>{$idBuscar}</strong>.</p>";
 }
 
+echo "<pre>" . $jsonModificado . "</pre>";
