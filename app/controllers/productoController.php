@@ -133,5 +133,25 @@ class ProductoController
             echo "Error al eliminar el producto.";
         }
     }
+    public function listarJson()
+{
+    header("Content-Type: application/json; charset=utf-8");
+
+    $productoModel = new Producto();
+
+    try {
+        $productos = $productoModel->getAll();
+
+        echo json_encode($productos, JSON_UNESCAPED_UNICODE);
+
+    } catch (PDOException $e) {
+        http_response_code(500);
+
+        echo json_encode(
+            ['error' => 'Error al obtener los productos'],
+            JSON_UNESCAPED_UNICODE
+        );
+    }
+}
 }
 ?>

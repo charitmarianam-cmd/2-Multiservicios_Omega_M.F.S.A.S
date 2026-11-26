@@ -3,18 +3,21 @@
 $rutas = [
     'GET' => [
         // Listar (GET all)
+         '/'     => ['HomeController', 'index'],
         '/cliente'    => ['ClienteController', 'listar'],
         '/clientes'   => ['ClienteController', 'listar'],
         '/producto'   => ['ProductoController', 'listar'],
         '/productos'  => ['ProductoController', 'listar'],
+        '/api/productos' => ['ProductoController', 'listarjson'],
         '/categoria'  => ['CategoriaController', 'listar'],
         '/categorias' => ['CategoriaController', 'listar'],
         '/compra'     => ['CompraController', 'listar'],
         '/compras'    => ['CompraController', 'listar'],
         '/proveedor'  => ['ProveedorController', 'listar'],
         '/proveedores'=> ['ProveedorController', 'listar'],
-        '/venta'      => ['VentaController', 'listar'], 
+        '/venta'      => ['VentaController', 'listar'],
         '/ventas'     => ['VentaController', 'listar'],
+        
 
         // Formularios de creación (GET)
         '/cliente/crear'    => ['ClienteController', 'crear'],
@@ -55,18 +58,18 @@ $rutas = [
         '/ventas'     => ['VentaController', 'guardar'],
 
         // Actualizar registros existentes
-        '/cliente/editar'     => ['ClienteController', 'actualizar'],
-        '/cliente/actualizar' => ['ClienteController', 'actualizar'],
-        '/producto/editar'    => ['ProductoController', 'actualizar'],
-        '/producto/actualizar'=> ['ProductoController', 'actualizar'],
-        '/categoria/editar'   => ['CategoriaController', 'actualizar'],
-        '/categoria/actualizar'=> ['CategoriaController', 'actualizar'],
-        '/compra/editar'      => ['CompraController', 'actualizar'],
-        '/compra/actualizar'  => ['CompraController', 'actualizar'],
-        '/proveedor/editar'   => ['ProveedorController', 'actualizar'],
-        '/proveedor/actualizar'=> ['ProveedorController', 'actualizar'],
-        '/venta/editar'       => ['VentaController', 'actualizar'],
-        '/venta/actualizar'   => ['VentaController', 'actualizar'],
+        '/cliente/editar'       => ['ClienteController', 'actualizar'],
+        '/cliente/actualizar'   => ['ClienteController', 'actualizar'],
+        '/producto/editar'      => ['ProductoController', 'actualizar'],
+        '/producto/actualizar'  => ['ProductoController', 'actualizar'],
+        '/categoria/editar'     => ['CategoriaController', 'actualizar'],
+        '/categoria/actualizar' => ['CategoriaController', 'actualizar'],
+        '/compra/editar'        => ['CompraController', 'actualizar'],
+        '/compra/actualizar'    => ['CompraController', 'actualizar'],
+        '/proveedor/editar'     => ['ProveedorController', 'actualizar'],
+        '/proveedor/actualizar' => ['ProveedorController', 'actualizar'],
+        '/venta/editar'         => ['VentaController', 'actualizar'],
+        '/venta/actualizar'     => ['VentaController', 'actualizar'],
 
         // Eliminar registros
         '/cliente/eliminar'   => ['ClienteController', 'eliminar'],

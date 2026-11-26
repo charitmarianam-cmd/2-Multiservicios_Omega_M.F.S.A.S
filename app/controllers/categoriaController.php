@@ -104,7 +104,7 @@ class CategoriaController
             echo "Error al eliminar la categoria.";
         }
     }
-}
 
+}
 
 ?>
